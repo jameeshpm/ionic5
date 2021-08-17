@@ -1,0 +1,33 @@
+<!-- @format -->
+
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-title>Accela Test App</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form (ngSubmit)="login()" [formGroup]="credentials">
+		<div class="input-group">
+			<ion-item>
+				<ion-input
+					type="email"
+					placeholder="Email"
+					formControlName="email"
+				></ion-input>
+			</ion-item>
+
+			<div
+				*ngIf="(email.dirty || email.touched) && email.errors"
+				class="errors"
+			>
+				<span *ngIf="email.errors?.required">Email is required</span>
+				<span *ngIf="email.errors?.email">Email is invalid</span>
+			</div>
+		</div>
+
+		<ion-button type="submit" expand="block" [disabled]="!credentials.valid"
+			>Log in</ion-button
+		>
+	</form>
+</ion-content>

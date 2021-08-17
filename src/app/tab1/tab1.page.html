@@ -1,0 +1,24 @@
+<!-- @format -->
+
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-title> My Posts </ion-title>
+		<ion-button slot="end" fill="clear" [routerLink]="['/', 'post']">
+			<ion-icon name="create-outline"></ion-icon>
+			<ion-label>New</ion-label>
+		</ion-button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card *ngFor="let post of posts">
+		<ion-card-header>
+			<ion-card-title> {{post.title}} </ion-card-title>
+		</ion-card-header>
+
+		<ion-card-content>
+			<div>{{post.body}}</div>
+			<ion-button expand="full" fill="clear">Read More</ion-button>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
